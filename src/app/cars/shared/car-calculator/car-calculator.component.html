@@ -1,0 +1,33 @@
+<div class="settings">
+  <div class="slider">
+    <div class="title">Первоначальный взнос</div>
+    <div class="value">{{ payment | price }}</div>
+    <mat-slider [max]="car.price" [min]="minPayment" [step]="paymentSteps" [(ngModel)]="payment"></mat-slider>
+  </div>
+  <div class="slider">
+    <div class="title">Готов платить в месяц</div>
+    <div class="value">до {{ paymentInMonth | price }}</div>
+    <mat-slider max="20000" min="1000" step="1000" [value]="paymentInMonth" (input)="paymentInMonthChange($event.value)">
+    </mat-slider>
+  </div>
+  <div class="slider">
+    <div class="title">Срок кредита</div>
+    <div class="value">{{ period }} месяцев</div>
+    <mat-slider max="80" min="1" step="12" [value]="period" (input)="periodChange($event.value)"></mat-slider>
+  </div>
+</div>
+<div class="tariff">
+  <div>
+    <div>Сумма Выплат</div>
+    <div>от 100000</div>
+  </div>
+  <div>
+    <div>Процентная ставка</div>
+    <div>от 100000 %</div>
+  </div>
+  <div>
+    <div>Платеж в месяц</div>
+    <div>от 100000</div>
+  </div>
+  <button mat-button cdkFocusInitial (click)="sendCalculatedValues()">Отправить заявку</button>
+</div>

@@ -1,0 +1,24 @@
+<div class="wrap">
+  <img class="img" [src]="[car.photo]" [alt]="[car.model]">
+  <div class="description">
+    <h2 class="car-title">
+      {{ car.category }} {{ car.model }}
+    </h2>
+    <div class="col">
+      <div>Бензин {{ car.horsePower }} л.c</div>
+      <div>{{ car.liters }} л</div>
+    </div>
+    <div class="col">
+      <div>{{ car.gear }}</div>
+      <div>{{ car.wheels }}</div>
+    </div>
+    <div class="col">
+      <div>{{ car.steps }} ступеней</div>
+      <div>{{ car.transmission }}</div>
+    </div>
+    <div class="col">
+      <div>Скидка {{ car.sale | price }}</div>
+      <h3>{{ car.price | price }}</h3>
+    </div>
+  </div>
+</div>

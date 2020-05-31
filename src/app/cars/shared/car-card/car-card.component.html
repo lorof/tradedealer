@@ -1,0 +1,11 @@
+<div class="cars-card">
+  <mat-card>
+    <img mat-card-image [src]="[car.photo]" [alt]="[car.model]">
+    <mat-card-content>
+      <div class="cars-count">{{ car.count }} авто</div>
+      <div class="cars-model">{{ car.model }}</div>
+      <h3 class="cars-price">от {{ car.price | price }}</h3>
+      <a mat-raised-button [routerLink]="['/cars', car.id]">Подробнее</a>
+    </mat-card-content>
+  </mat-card>
+</div>

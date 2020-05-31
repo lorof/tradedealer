@@ -1,0 +1,13 @@
+<div *ngIf="carList.length">
+  <div class="list" *ngFor="let category of carList">
+    <div class="list-header">
+      <h2 class="title">{{category.title}} <span class="cars-count">{{category.cars.length}}</span></h2>
+      <a class="link" href="#">Все модели {{ category.title }}</a>
+    </div>
+    <ul class="grid">
+      <li class="grid-item" *ngFor="let car of category.cars">
+        <app-car-card [car]="car" (click)="openDialog(car)"></app-car-card>
+      </li>
+    </ul>
+  </div>
+</div>

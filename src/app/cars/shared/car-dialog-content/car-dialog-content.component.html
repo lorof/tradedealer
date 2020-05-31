@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Расчет кредита {{ data.car.category }} {{ data.car.model }}</h2>
+<mat-dialog-content class="dialog">
+  <button class="button-close" mat-button mat-dialog-close>
+    <mat-icon class="icon" aria-hidden="false" aria-label="Example user verified icon">close</mat-icon>
+  </button>
+  <app-car-card-wide [car]="data.car"></app-car-card-wide>
+  <app-car-calculator [car]="data.car"></app-car-calculator>
+</mat-dialog-content>

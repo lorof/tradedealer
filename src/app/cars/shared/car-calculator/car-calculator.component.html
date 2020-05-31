@@ -2,7 +2,7 @@
   <div class="slider">
     <div class="title">Первоначальный взнос</div>
     <div class="value">{{ payment | price }}</div>
-    <mat-slider [max]="car.price" [min]="minPayment" [step]="paymentSteps" [(ngModel)]="payment"></mat-slider>
+    <mat-slider [max]="car.price" [min]="minPayment" [step]="paymentSteps" [(ngModel)]="payment" (input)="paymentChange()"></mat-slider>
   </div>
   <div class="slider">
     <div class="title">Готов платить в месяц</div>
@@ -19,15 +19,15 @@
 <div class="tariff">
   <div>
     <div>Сумма Выплат</div>
-    <div>от 100000</div>
+    <div>от {{ tariff.sum | price }}</div>
   </div>
   <div>
     <div>Процентная ставка</div>
-    <div>от 100000 %</div>
+    <div>от {{ tariff.percent }} %</div>
   </div>
   <div>
     <div>Платеж в месяц</div>
-    <div>от 100000</div>
+    <div>от {{ tariff.paymentInMonth | price }}</div>
   </div>
   <button mat-button cdkFocusInitial (click)="sendCalculatedValues()">Отправить заявку</button>
 </div>

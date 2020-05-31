@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { Car } from '../car.model';
 import { SuccessDialogContentComponent } from '../success-dialog-content/success-dialog-content.component';
+import { TariffService } from '../tariff.service';
+import { Tariff } from '../tariff.model';
 
 @Component({
   selector: 'app-car-calculator',
@@ -28,7 +30,9 @@ export class CarCalculatorComponent implements OnInit {
   private paymentInMonth$ = new BehaviorSubject<number>(this.paymentInMonth);
   private period$ = new BehaviorSubject<number>(this.period);
 
-  constructor(public dialog: MatDialog) {}
+  public tariff!: Tariff
+
+  constructor(public dialog: MatDialog, private tariffService: TariffService) {}
 
   public ngOnInit(): void {
     const paymentPercent = Math.floor(
@@ -62,16 +66,22 @@ export class CarCalculatorComponent implements OnInit {
           this.period = 0;
         }
       });
+
+    this.tariff = this.tariffService.getRandomTariff();
   }
 
   public paymentInMonthChange(value: number): void {
     this.paymentInMonth = value;
     this.paymentInMonth$.next(value);
+
+    this.tariff = this.tariffService.getRandomTariff();
   }
 
   public periodChange(value: number): void {
     this.period = value;
     this.period$.next(value);
+
+    this.tariff = this.tariffService.getRandomTariff();
   }
 
   public ngOnDestroy(): void {
@@ -81,5 +91,9 @@ export class CarCalculatorComponent implements OnInit {
 
   public sendCalculatedValues(): void {
     this.dialog.open(SuccessDialogContentComponent);
+  }
+
+  public paymentChange(): void {
+    this.tariff = this.tariffService.getRandomTariff();
   }
 }

@@ -21,17 +21,11 @@ export class CarCalculatorComponent implements OnInit {
   @Input() public car!: Car;
 
   public minPayment = 0;
-
   public payment = 0;
-
   public paymentSteps = 0;
-
   public paymentInMonth = 5000;
-
   public period = 12;
-
   private paymentInMonth$ = new BehaviorSubject<number>(this.paymentInMonth);
-
   private period$ = new BehaviorSubject<number>(this.period);
 
   constructor(public dialog: MatDialog) {}
@@ -42,9 +36,7 @@ export class CarCalculatorComponent implements OnInit {
     );
 
     this.payment = paymentPercent;
-
     this.minPayment = paymentPercent;
-
     this.paymentSteps = Math.floor(
       (5 / 100) * (this.car.price - this.car.sale)
     );
@@ -84,7 +76,6 @@ export class CarCalculatorComponent implements OnInit {
 
   public ngOnDestroy(): void {
     this.period$.unsubscribe();
-
     this.paymentInMonth$.unsubscribe();
   }
 

@@ -13,11 +13,9 @@ export interface DialogData {
   styleUrls: ['./car-dialog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CarDialogContentComponent implements OnInit {
+export class CarDialogContentComponent {
   constructor(
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
-
-  ngOnInit(): void {}
 }

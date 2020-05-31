@@ -8,10 +8,6 @@ import { Car } from '../car.model';
   styleUrls: ['./car-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CarCardComponent implements OnInit {
+export class CarCardComponent {
   @Input() public car!: Car;
-
-  constructor() {}
-
-  public ngOnInit(): void {}
 }

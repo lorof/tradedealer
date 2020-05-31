@@ -7,12 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./success-dialog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SuccessDialogContentComponent implements OnInit {
+export class SuccessDialogContentComponent {
 
   constructor(public dialog: MatDialog) { }
-
-  public ngOnInit(): void {
-  }
 
   public goBack(): void {
     this.dialog.closeAll();

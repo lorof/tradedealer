@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+
 import { Car } from '../car.model';
 
 @Component({
@@ -7,12 +8,6 @@ import { Car } from '../car.model';
   styleUrls: ['./car-card-wide.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CarCardWideComponent implements OnInit {
+export class CarCardWideComponent {
   @Input() public car!: Car;
-
-  constructor() { }
-
-  public ngOnInit(): void {
-  }
-
 }

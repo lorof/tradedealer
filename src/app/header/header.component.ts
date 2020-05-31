@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChildren } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,12 +6,6 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewChildren } from '@angul
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @ViewChildren('span') public children!: HTMLDivElement;
-
-  constructor() { }
-
-  public ngOnInit(): void {
-  }
-
 }
